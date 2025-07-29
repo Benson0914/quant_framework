@@ -7,7 +7,7 @@ import logging
 
 START_DATE = '2022-01-01T00:00:00'
 END_DATE = '2025-01-01T00:00:00'
-OHLCV_LIMIT = 1000  # ccxt 最大支援
+OHLCV_LIMIT = 1000
 
 class HistoricalFetcher:
     def __init__(self):
@@ -19,7 +19,7 @@ class HistoricalFetcher:
             'options': {'defaultType': 'future'},
         })
 
-    # ... fetch_ohlcv_range 不變 ...
+    # ... fetch_ohlcv_range ...
     async def fetch_ohlcv_range(self, symbol, timeframe, since, until):
         all_data = []
         while since < until:
@@ -32,7 +32,6 @@ class HistoricalFetcher:
                 if not ohlcv:
                     break
                 all_data.extend(ohlcv)
-                # 下一輪 since 設為最後一根K線+1ms
                 since = ohlcv[-1][0] + 1
                 if len(ohlcv) < OHLCV_LIMIT:
                     break
