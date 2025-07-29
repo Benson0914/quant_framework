@@ -15,7 +15,7 @@ class IndicatorCalculator:
         self.stop_loss_atr = Config.STOP_LOSS_ATR
         self.take_profit_atr = Config.TAKE_PROFIT_ATR
 
-# 取得 OHLCV 資料 (可以刪除 由Data fetch)
+# get OHLCV
     def fetch_ohlcv(self, symbol, timeframe='1h', limit=500):
         try:
             cursor = self.db.db.ohlcv.find(
@@ -26,12 +26,11 @@ class IndicatorCalculator:
             if not data:
                 return pd.DataFrame()
             
-            # 將 list of dict 轉成 DataFrame
+            
             df = pd.DataFrame(data)
 
-            # 確保 timestamp 是 datetime 或 ISO string，若為字串可轉換
             if 'timestamp' in df.columns:
-                # 如果timestamp是ISO格式字串就轉成datetime格式
+                # if timestamp = ISO type, transfer to datetime
                 df['timestamp'] = pd.to_datetime(df['timestamp'])
             return df
         except Exception as e:
