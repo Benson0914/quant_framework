@@ -1,0 +1,22 @@
+binance_api_key: 'YOUR_API_KEY'
+binance_api_secret: 'YOUR_API_SECRET'
+mode: 'real'  # 'real' 或 'simulate'
+symbols:
+  - BTC/USDT
+  - ETH/USDT
+  - BNB/USDT
+  - SOL/USDT
+  - XRP/USDT
+position_size:
+  BTC/USDT: 0.1
+  ETH/USDT: 1
+  BNB/USDT: 2
+  SOL/USDT: 5
+  XRP/USDT: 100
+leverage: 10
+polling_interval: 3600  # 單位：秒 
+exchanges:
+  - binance
+timeframes:
+  - 1h
+  - 1d

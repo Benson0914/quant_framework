@@ -1,0 +1,17 @@
+class Config:    
+    SYMBOLS = ['BTC/USDT', 'ETH/USDT', 'BNB/USDT', 'SOL/USDT', 'XRP/USDT']
+    TIMEFRAMES = ['1h', '1d']  # 支援 CTA（1h、1d）和潛在套利（5m）
+    OHLCV_UPDATE_INTERVAL = 300  # OHLCV 更新頻率：5 分鐘
+    ORDERBOOK_UPDATE_INTERVAL = 10  # 訂單簿更新頻率：10 秒
+    OHLCV_LIMIT = 100  # 每次獲取的 K 線數量
+    ORDERBOOK_LIMIT = 5  # 訂單簿深度
+    STOP_LOSS_ATR = 1.5
+    TAKE_PROFIT_ATR = 3.0
+    SLIPPAGE = 0.0005
+    FEE_RATE = 0.0004
+    RISK_PER_TRADE = 0.005
+    LEVERAGE = 10
+    SYMBOL_PRECISION = 4
+    CAPITAL = 1000000
+    MAX_POSITIONS = 10
+    MAX_RISK = 0.05
